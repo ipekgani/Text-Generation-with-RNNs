@@ -8,16 +8,16 @@ First the models are compared based on a toy problem: Completing Palindromes. Th
 
 The current code will only print plots from previous training logs. If you delete the pickle file, the code will run for all palindrome lengths from 5 to 35. A different model is trained for every length.
 
-# Text Generation with LSTMs
+## Actual Text Generation
 An LSTM is trained on any data of choice; a book, a script, a WhatsApp chat log, anything. Then the model can be used to:
 - Generate new text.
 - Complete any given text.
 
 The generation can be adjusted using a *temperature* variable which basically decides how greedy or random the generation is.
 
-## Results
+### Results
 
-### Book
+#### Book
 Generation using a model trained on an [Agatha Christie book](_part2_text_generation/assets/book_agatha.txt). Below the model is used to complete sentences with the arbitrary choice of 60 characters.
 (generated text is in *italics*, \n indicate new line)
 
@@ -32,14 +32,14 @@ Generation using a model trained on an [Agatha Christie book](_part2_text_genera
 - He said "Detective!*\n“You see that the prisoner in the mantelpiece, and the six o*
 - \n\n *\n\nCHAPTER II. THE 16TH AND DRIGATE WORTES RECT AGUTE OR TH*
 
-## Code
+### Code
 
 If you run the code [train.py](_part2_text_generation/train.py) at it's current state, it will load the previous model and perform generation.
 
 To train a model on any file or book of your choice, preferably place the book txt under [assets](_part2_text_generation/assets), change the argument **txt_file** to the path & name of the book. Change argument **model_folder** to the model name of your choice. Model will be trained up to however many steps you specify.
 Model will occasionally perform generation (sampling) during training.
 
-### WhatsApp Data
+#### WhatsApp Data
 
 If you use the code with WhatsApp chat data, I would suggest uncommenting the call of the function *whatsapp_clean_data* which basically gets rid of the *Media not included* text. It's good to get rid of such text as it does not have a significant meaning in terms of dependency to words around it, and occurs often.
 
